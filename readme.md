@@ -5,6 +5,9 @@ This is an extension of std::ranges, not a replacement. It expands on the famili
 
 > A recent compiler with C++23 support is required. If you're getting errors about range adaptor closures it means your compiler lacks library support for the latest std::ranges features (specifically "Pipe support for user-defined range adaptors")
 
+Depends on [meta](github.com/Kyran-C/meta) and [common](github.com/Kyran-C/common)
+
+Link or clone to `/external`
 
 <br>
 
@@ -241,5 +244,6 @@ If we used `fmap`, it would lift both ends of the function, resulting in a doubl
 Some implementations of `bind` just reuse `fmap` followed by a join operation (for example with lists, flattening nested lists into a single list)
 
 Both of these lifting functions need to obey a few rules so that they behave as expected. Composing two simple functions and then lifting the result should be equivalent to lifting the two functions and then composing them. Basically they can't arbitrarily throw away values. It needs to preserve the values and structure/context of its input.
+
 
 
